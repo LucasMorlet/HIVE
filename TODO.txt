@@ -1,0 +1,17 @@
+
+
+Mixed Reality :
+  - check that mask for RawImage
+  - make an oval mask at the bottom as a real world window
+
+WASP integration :
+  - duplicate source code
+  - reformate the transfering file as a JSON
+
+Check list :
+  - create another layer inside HUD
+  - add to this one a TextMesh to write tasks
+  - handle keyboard arrow for next task / next step
+
+ANT :
+  - track entities to integrate inside Unity
