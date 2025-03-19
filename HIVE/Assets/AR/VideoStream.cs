@@ -11,6 +11,7 @@ public class VideoStream : MonoBehaviour
     private WebCamDevice[] camera_list;
     private WebCamTexture camera_texture;
     private UnityEngine.UI.RawImage rendered_image;
+    private Texture2D texture;
 
 
     #if UNITY_IOS || UNITY_WEBGL
@@ -88,6 +89,9 @@ public class VideoStream : MonoBehaviour
 
     void Start()
     {
+        this.texture = this.MakeHole ( new Texture2D(3840, 2160) );
+        this.rendered_image = this.GetComponent<UnityEngine.UI.RawImage>();
+        this.rendered_image.texture = this.texture;
         PermissionHandling(); // Depends on OS context
         DisplayCameraList();
     }
@@ -118,7 +122,8 @@ public class VideoStream : MonoBehaviour
 
     void Update()
     {
-        OnKeyDown();
+        this.OnKeyDown();
+        //this.EditMask();
     }
 
     // Keyboard control
@@ -140,14 +145,41 @@ public class VideoStream : MonoBehaviour
         {
             Debug.Log ( "New camera input : " + this.camera_list[cam_number].name );
             this.camera_texture = new WebCamTexture( this.camera_list[cam_number].name );
-            this.rendered_image = this.GetComponent<UnityEngine.UI.RawImage>();
             this.rendered_image.texture = this.camera_texture;
-            Debug.Log ( this.rendered_image.texture );
             this.camera_texture.Play();
         }
         else 
         {
             Debug.LogWarning ( "Camera number " + cam_number + "does not exist, only " + this.camera_list.Length + " camera(s) found" );
         }
+    }
+
+    private void EditMask ( )
+    {
+        // 
+    }
+
+    private Texture2D MakeHole ( Texture2D input )
+    {
+        Texture2D output = new Texture2D ( input.width, input.height );
+        int centerX = (int)(input.width/2);
+        int centerY = (int)(input.height/2);
+        int radius = (int)(0.6*input.height);
+        int square_radius = radius * radius;
+
+        for ( int i = 0 ; i < input.width ; i++ )
+        {
+            for ( int j = 0 ; j < input.height ; j++ )
+            {
+                Color color = input.GetPixel ( i, j );
+                if ( (i-centerY)*(i-centerY) + (j-centerX)*(j-centerX) <= square_radius )
+                {
+                    color.a = 0.0f;
+                }
+                output.SetPixel ( i, j, color );
+            }
+        }
+
+        return output;
     }
 }
