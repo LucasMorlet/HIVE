@@ -9,9 +9,7 @@ WASP integration :
   - reformate the transfering file as a JSON
 
 Check list :
-  - create another layer inside HUD
-  - add to this one a TextMesh to write tasks
-  - handle keyboard arrow for next task / next step
+  - fix that Unicode trouble to display checkboxes
 
 ANT :
   - track entities to integrate inside Unity
