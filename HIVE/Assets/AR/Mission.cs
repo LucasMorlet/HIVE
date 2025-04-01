@@ -53,7 +53,7 @@ public class Mission
         this.done[n] = false;
     }
 
-    public string ToString ( )
+    public override string ToString ( ) 
     {
         string str = "*****" + this.title + "*****\n";
         for ( int i = 0 ; i < this.tasks_number() ; i++ )
