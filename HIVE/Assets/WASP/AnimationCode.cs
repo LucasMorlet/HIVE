@@ -8,7 +8,6 @@ using System;
 
 public class AnimationCode : MonoBehaviour
 {
-    
     string fichier = "Assets/WASP/Pose_Tracking/AnimationFile.txt";
     string ligne = "HW!"; 
 	StreamReader sr;

@@ -67,7 +67,7 @@ public class PuppetAnimation : MonoBehaviour
 
     void ChestAnimation ( int lowerSpine, int mediumSpine, int upperSpine, int upperChest, int leftChest, int lowerChest, int rightChest )
     {
-		// utiliser les poinys plutot que les os
+		// utiliser les points plutot que les os
         Vector3 neck = this.body_to_copy.GetComponent<AnimationCode>().getBone ( upperChest ).transform.position;
         Vector3 coccyx = this.body_to_copy.GetComponent<AnimationCode>().getBone ( lowerChest ).transform.position;
         Vector3 left = this.body_to_copy.GetComponent<AnimationCode>().getBone ( leftChest ).transform.position;

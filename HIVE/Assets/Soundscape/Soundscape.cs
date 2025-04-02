@@ -30,7 +30,7 @@ public class Soundscape : MonoBehaviour
         }
         this.last_sound = 3; // Hard-coded siren sound
         this.audio_source.clip = this.sounds[this.last_sound];
-        this.audio_source.Play();
+        //this.audio_source.Play();
         this.delay = this.audio_source.clip.length + Random.Range( Soundscape.MIN_DELAY, Soundscape.MAX_DELAY );
     }
 
@@ -49,7 +49,7 @@ public class Soundscape : MonoBehaviour
 
             this.last_sound = n;
             this.audio_source.clip = this.sounds[n];
-            this.audio_source.Play();
+            //this.audio_source.Play();
             this.delay = this.audio_source.clip.length + Random.Range( Soundscape.MIN_DELAY, Soundscape.MAX_DELAY );
         }
     }
