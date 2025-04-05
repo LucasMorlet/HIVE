@@ -19,11 +19,26 @@ public class Animation_by_rotation : MonoBehaviour
     {
         this.transform.GetPositionAndRotation ( out this.main_position, out this.main_rotation );
         this.input_points = new Vector3[33];
-        this.joints = new GameObject[10];
+        this.joints = new GameObject[12];
         this.joints[0] = this.transform.Find("Hips").gameObject;
         this.joints[1] = this.transform.Find("Hips/Left_hip").gameObject;
-        this.joints[2] = this.transform.Find("Hips/Left_hip/Left_thigh_21/Left_knee").gameObject;
-        this.joints[3] = this.transform.Find("Hips/Left_hip/Left_thigh_21/Left_knee/Left_tibia_22/Left_ankle").gameObject;
+        this.joints[2] = this.transform.Find("Hips/Left_hip/Left_thigh/Left_knee").gameObject;
+        this.joints[3] = this.transform.Find("Hips/Left_hip/Left_thigh/Left_knee/Left_tibia/Left_ankle").gameObject;
+        this.joints[4] = this.transform.Find("Hips/Right_hip").gameObject;
+        this.joints[5] = this.transform.Find("Hips/Right_hip/Right_thigh/Right_knee").gameObject;
+        this.joints[6] = this.transform.Find("Hips/Right_hip/Right_thigh/Right_knee/Right_tibia/Right_ankle").gameObject;
+        this.joints[7] = this.transform.Find("Hips/Torso/Shoulders").gameObject;
+        this.joints[8] = this.transform.Find("Hips/Torso/Shoulders/Left_shoulder").gameObject;
+        this.joints[9] = this.transform.Find("Hips/Torso/Shoulders/Left_shoulder/Left_arm/Left_elbow").gameObject;
+        this.joints[10] = this.transform.Find("Hips/Torso/Shoulders/Right_shoulder").gameObject;
+        this.joints[11] = this.transform.Find("Hips/Torso/Shoulders/Right_shoulder/Right_arm/Right_elbow").gameObject;
+
+        /*
+        for ( int i = 0 ; i < this.joints.Length ; i++ )
+        {
+            Debug.Log ( i + " -> " + this.joints[i] );
+        }
+        */
     }   
 
     // Update is called once per frame
@@ -70,6 +85,17 @@ public class Animation_by_rotation : MonoBehaviour
         this.transform.position = new Vector3 ( 0, 0, 0 );
         this.transform.rotation = Quaternion.Euler ( 0, 0, 0 );
         
+        // TODO hips
+        this.rotate_joint ( 1, 23, 25, 0 );
+        this.rotate_joint ( 2, 25, 27, 1 );
+        this.rotate_joint ( 3, 29, 31, 2 );
+        this.rotate_joint ( 4, 24, 26, 0 );
+        this.rotate_joint ( 5, 26, 28, 4 );
+        this.rotate_joint ( 6, 30, 32, 5 );
+        this.rotate_joint ( 8, 11, 13, 7 );
+        this.rotate_joint ( 9, 13, 15, 8 );
+        this.rotate_joint ( 10, 12, 14, 7 );
+        this.rotate_joint ( 11, 14, 16, 10 );
 
         this.transform.SetPositionAndRotation ( this.main_position, this.main_rotation );
     }

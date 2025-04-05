@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1050339732155022364}
   m_Layer: 0
-  m_Name: Right_Shoulder
+  m_Name: Right_shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4209,7 +4209,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2612325719085255518, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_Name
-      value: Left_arm_10
+      value: Left_arm
       objectReference: {fileID: 0}
     - target: {fileID: 4352347075091461458, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_RootOrder
@@ -4294,7 +4294,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2612325719085255518, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_Name
-      value: Left_thigh_21
+      value: Left_thigh
       objectReference: {fileID: 0}
     - target: {fileID: 4352347075091461458, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_RootOrder
@@ -4555,7 +4555,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2612325719085255518, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_Name
-      value: Right_forearm_5
+      value: Right_forearm
       objectReference: {fileID: 0}
     - target: {fileID: 4352347075091461458, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_RootOrder
@@ -4804,7 +4804,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2612325719085255518, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_Name
-      value: Right_thigh_16
+      value: Right_thigh
       objectReference: {fileID: 0}
     - target: {fileID: 4352347075091461458, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_RootOrder
@@ -5307,7 +5307,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2612325719085255518, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_Name
-      value: Left_forearm_11
+      value: Left_forearm
       objectReference: {fileID: 0}
     - target: {fileID: 4352347075091461458, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_RootOrder
@@ -5809,7 +5809,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2612325719085255518, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_Name
-      value: Left_tibia_22
+      value: Left_tibia
       objectReference: {fileID: 0}
     - target: {fileID: 4352347075091461458, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_RootOrder
@@ -5894,7 +5894,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2612325719085255518, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_Name
-      value: Right_arm_4
+      value: Right_arm
       objectReference: {fileID: 0}
     - target: {fileID: 4352347075091461458, guid: 08f414a8e6ec43e4ea40a21a66061658, type: 3}
       propertyPath: m_RootOrder
