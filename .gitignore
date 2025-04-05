@@ -19,6 +19,7 @@ HIVE/[Bb]uild/
 HIVE/[Bb]uilds/
 HIVE/[Ll]ogs/
 HIVE/[Uu]ser[Ss]ettings/
+*.meta
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
