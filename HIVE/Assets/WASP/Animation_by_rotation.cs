@@ -1,21 +1,29 @@
 using UnityEngine;
+using System;
+using System.IO;
+using System.Threading;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Animation_by_rotation : MonoBehaviour
 {
     const string fichier = "Assets/WASP/Pose_Tracking/AnimationFile.txt";
     string line; 
 	StreamReader sr;
 
+    private Vector3 main_position;
+    private Quaternion main_rotation;
     private Vector3[] input_points;
-    public GameObject[] joints;
+    private GameObject[] joints;
     
     // Start is called before the first frame update
     void Start()
     {
+        this.transform.GetPositionAndRotation ( out this.main_position, out this.main_rotation );
+        this.input_points = new Vector3[33];
         this.joints = new GameObject[10];
-        this.joints[0] = this.transform.Find("Bones/Hips/Left_hip").gameObject;
-        this.joints[1] = this.transform.Find("Bones/Hips/Left_hip/Left_thigh_21/Left_knee").gameObject;
-        this.joints[2] = this.transform.Find("Bones/Hips/Left_hip/Left_thigh_21/Left_knee/Left_tibia_22/Left_ankle").gameObject;
+        this.joints[0] = this.transform.Find("Hips").gameObject;
+        this.joints[1] = this.transform.Find("Hips/Left_hip").gameObject;
+        this.joints[2] = this.transform.Find("Hips/Left_hip/Left_thigh_21/Left_knee").gameObject;
+        this.joints[3] = this.transform.Find("Hips/Left_hip/Left_thigh_21/Left_knee/Left_tibia_22/Left_ankle").gameObject;
     }   
 
     // Update is called once per frame
@@ -23,7 +31,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         this.line = "";
 		this.read_file();
-		this.animation();
+		this.puppet_animation();
+        Thread.Sleep(30);
     }
 
     void read_file ( )
@@ -31,8 +40,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         // Read file is available
         try
 		{
-			sr = new StreamReader ( fichier );
-			line = sr.ReadLine();
+			this.sr = new StreamReader ( fichier );
+			this.line = this.sr.ReadLine();
 		}
 		catch ( Exception e ) 
 		{
@@ -40,12 +49,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
 		}
 		finally
 		{
-			sr.Close();
+			this.sr.Close();
 		}
 
         // Place points in the right place
-        string[] points = ligne.Split(',');
-        for ( int i = 0 ; i < cloud_points.Length ; i++ )
+        string[] points = this.line.Split(',');
+        for ( int i = 0 ; i < this.input_points.Length ; i++ )
         {
             input_points[i] = new Vector3 
 			( 
@@ -56,14 +65,18 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
     }
 
-    void animation ( )
+    void puppet_animation ( )
     {
+        this.transform.position = new Vector3 ( 0, 0, 0 );
+        this.transform.rotation = Quaternion.Euler ( 0, 0, 0 );
+        
 
+        this.transform.SetPositionAndRotation ( this.main_position, this.main_rotation );
     }
 
-    void rotate_joint ( int index_joints, int index_A, int index_B, int index_parent )
+    void rotate_joint ( int index_joint, int index_A, int index_B, int index_parent )
     {
-        Vector3 global_orientation = this.input_points[this.index_B] - this.input_points[this.index_A];
-        this.joints.localRotation = Quaternion.FromToRotation ( this.joints[index_parent].up, global_orientation );
+        Vector3 world_orientation = this.input_points[index_B] - this.input_points[index_A];
+        this.joints[index_joint].transform.localRotation = Quaternion.FromToRotation ( this.joints[index_parent].transform.up, world_orientation );
     }
 }
