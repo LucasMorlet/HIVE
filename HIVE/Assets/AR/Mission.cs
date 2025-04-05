@@ -60,13 +60,14 @@ public class Mission
         {
             if ( this.done[i] )
             {
-                str += "\U00002611 "; // Ticked box
+                //str += "\U00002611 "; // Ticked box
+                str += "<s>" + this.tasks[i] + "</s> \n";
             }
             else
             {
-                str += "\U00002610 "; // Unticked box
+                //str += "\U00002610 "; // Unticked box
+                str += this.tasks[i] + "\n";
             }
-            str += tasks[i] + "\n";
         }
         return str;
     }
