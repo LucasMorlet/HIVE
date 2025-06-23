@@ -7,7 +7,7 @@ using UnityEngine.Android;
 
 public class VideoReplication : MonoBehaviour
 {
-    public GameObject left_eye;
+    public GameObject to_duplicate;
     // Attributes
     private UnityEngine.UI.RawImage rendered_image;
     private Texture2D texture;
@@ -16,7 +16,7 @@ public class VideoReplication : MonoBehaviour
     {
         //this.texture = this.MakeHole ( new Texture2D(3840, 2160) );
         this.rendered_image = this.GetComponent<UnityEngine.UI.RawImage>();
-        this.rendered_image.texture = this.left_eye.GetComponent<UnityEngine.UI.RawImage>().texture;
+        this.rendered_image.texture = this.to_duplicate.GetComponent<UnityEngine.UI.RawImage>().texture;
         //this.rendered_image.texture = this.GetComponent<UnityEngine.UI.RawImage>();
     }
 
@@ -24,10 +24,10 @@ public class VideoReplication : MonoBehaviour
 
     void Update()
     {
-        //this.rendered_image.texture = this.left_eye.GetComponent<UnityEngine.UI.RawImage>();
+        //this.rendered_image.texture = this.to_duplicate.GetComponent<UnityEngine.UI.RawImage>();
         //this.EditMask();
         this.rendered_image = this.GetComponent<UnityEngine.UI.RawImage>();
-        this.rendered_image.texture = this.left_eye.GetComponent<UnityEngine.UI.RawImage>().texture;
+        this.rendered_image.texture = this.to_duplicate.GetComponent<UnityEngine.UI.RawImage>().texture;
     }
 
     private void EditMask ( )
